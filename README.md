@@ -1,8 +1,33 @@
 # 공학용 힘 단위 변환기
 
+## 업데이트 항목
+
+- `force_converter_10.07.py`로 힘 단위 변환 GUI를 실행할 수 있습니다.
+- `load_analyzer.py`가 `load_data.csv`의 `time_s`, `force_N` 데이터를 분석합니다.
+- 단면적 `100 mm²`를 기준으로 `stress_MPa` 열을 계산해
+  `load_result.csv`에 저장합니다. 원본 CSV는 수정하지 않습니다.
+- 데이터 개수, 최대 하중과 해당 시간, 최대 응력과 해당 시간을 출력합니다.
+- 시간-응력 그래프를 점과 선으로 표시해 `stress_plot.png`로 저장합니다.
+  그래프에는 최대 응력, 기준 응력 `6 MPa`, 기준 초과 데이터 개수가 표시됩니다.
+- `time_s` 또는 `force_N`이 비어 있거나 숫자가 아닌 행은 원본 CSV 행번호와
+  문제값을 출력하고 분석에서 제외합니다. 유효한 데이터가 없으면 계산을
+  중단합니다.
+- 분석에 필요한 외부 패키지는 `pandas`와 `matplotlib`입니다.
+
+### 하중 데이터 분석 실행
+
+```powershell
+.\.venv\Scripts\python.exe .\load_analyzer.py
+```
+
+분석 결과 파일:
+
+- `load_result.csv`: 유효한 하중 데이터와 `stress_MPa`
+- `stress_plot.png`: 시간-응력 그래프
+
 ## 프로그램 용도
 
-`force_converter_9.30.py`는 입력한 힘의 크기를 다른 힘 단위로 변환하는
+`force_converter_10.07.py`는 입력한 힘의 크기를 다른 힘 단위로 변환하는
 데스크톱 GUI 프로그램입니다.
 
 입력 단위를 제외한 나머지 지원 단위로 변환한 결과를 표시합니다.
@@ -29,13 +54,13 @@
 다음 중 하나를 실행합니다.
 
 ```powershell
-python force_converter_9.30.py
+python force_converter_10.07.py
 ```
 
 또는 Windows Python 런처를 사용하는 경우:
 
 ```powershell
-py force_converter_9.30.py
+py force_converter_10.07.py
 ```
 
 실행하면 `공학용 힘 단위 변환기` 창이 열립니다.
